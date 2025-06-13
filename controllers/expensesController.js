@@ -1,4 +1,4 @@
-const expensesModel=require('../models/expensesController')
+const expensesModel=require('../models/expensesModel')
 const connect=require('../config/db')
 // const {v4:uuidv4} =require('uuid')
 const addExpense=async (req,res)=>{
