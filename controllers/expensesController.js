@@ -1,13 +1,11 @@
 const expensesModel=require('../models/expensesController')
 const connect=require('../config/db')
-const {v4:uuidv4} =require('uuid')
+// const {v4:uuidv4} =require('uuid')
 const addExpense=async (req,res)=>{
     await connect();
-    try{
-        const expense_id=uuidv4();
+    try{;
         const {username,title,category,date,amount,description}=req.body
         const newExpense=new expensesModel({
-            expense_id,
             username,
             title,
             category,
