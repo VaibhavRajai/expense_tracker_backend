@@ -1,6 +1,6 @@
 const mongoose=require('mongoose')
 
-const expensesModel=new mongoose.model({
+const expensesModel=new mongoose.Schema({
     expense_id:{
         type:String,
         required:true
@@ -30,4 +30,4 @@ const expensesModel=new mongoose.model({
     }
 })
 const Expenses=mongoose.model('Expenses',expensesModel)
-module.exports=Expenses
+module.exports=Expenses;
