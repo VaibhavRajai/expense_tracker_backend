@@ -1,10 +1,6 @@
 const mongoose=require('mongoose')
 
 const expensesModel=new mongoose.Schema({
-    expense_id:{
-        type:String,
-        required:true
-    },
     username:{
         type:String,
         required:true
