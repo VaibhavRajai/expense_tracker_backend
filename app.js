@@ -8,10 +8,14 @@ dotenv.config()
 connect()
 app.use(express.json())
 app.use(cors())
-
+const mongoose=require('mongoose')
 app.use('/api',userRoute)
+// console.log(process.env.MONGO_URI)
 
 const PORT=process.env.PORT;
 app.listen(PORT,()=>{
     console.log('Server Started')
 })
+
+
+console.log(mongoose.connection.readyState)

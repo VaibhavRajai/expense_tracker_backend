@@ -1,8 +1,10 @@
 const express=require('express')
 const User=require('../models/userModel')
-
+const connect = require('../config/db')
 const signUp=async (req,res)=>{
+
     try{
+        await connect();
           const { firstName, lastName, email, username, password } = req.body;
         
           //checking for an existing email
@@ -31,6 +33,7 @@ const signUp=async (req,res)=>{
 
 const login=async (req,res)=>{
     try{
+        await connect();
         const {username,password}=req.body;
         if(!username || !password) {
             return res.status(400).json({message:"Both fields are required"})
