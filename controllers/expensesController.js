@@ -1,27 +1,27 @@
-const expensesModel=require('../models/expensesModel')
-const connect=require('../config/db')
-// const {v4:uuidv4} =require('uuid')
-const addExpense=async (req,res)=>{
+const Expenses = require('../models/expensesModel'); 
+const connect = require('../config/db');
+
+const addExpense = async (req, res) => {
     await connect();
-    try{;
-        const {username,title,category,date,amount,description}=req.body
-        const newExpense=new expensesModel({
+    try {
+        const { username, title, category, date, amount, description } = req.body;
+        const newExpense = new Expenses({
             username,
             title,
             category,
             date,
             amount,
             description
-        })
+        });
         await newExpense.save();
 
-        res.status(201).json({message:"Expense Added successfully"})
+        res.status(201).json({ message: "Expense Added successfully" });
 
-        
-    }catch(error){
-        return res.status(500).json({message:error.message})
+    } catch (error) {
+        return res.status(500).json({ message: error.message });
     }
-}
-module.exports={
+};
+
+module.exports = {
     addExpense
-}
+};
