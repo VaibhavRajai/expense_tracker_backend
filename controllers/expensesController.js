@@ -28,7 +28,7 @@ const viewExpensesByUsername=async(req,res)=>{
         if(!username){
             return res.status(400).json({message:"Username is required"})
         }
-        const expenses=await Expenses.fetch({username});
+        const expenses=await Expenses.find({username});
 
         if(expenses.length==0){
             return res.status(404).json({message:"No Exepenses yet!!"})
